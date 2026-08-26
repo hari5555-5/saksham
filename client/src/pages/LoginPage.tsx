@@ -21,11 +21,11 @@ export default function LoginPage() {
     try {
       await login(email, password);
       navigate('/');
-    } catch (err) {
+    } catch (err: any) {
       if (axios.isAxiosError(err)) {
         setError(err.response?.data?.error || 'Login failed. Please try again.');
       } else {
-        setError('An unexpected error occurred. Please try again.');
+        setError(err?.message || 'An unexpected error occurred. Please try again.');
       }
     } finally {
       setIsLoading(false);

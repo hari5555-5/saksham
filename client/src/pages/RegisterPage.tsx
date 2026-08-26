@@ -50,11 +50,11 @@ export default function RegisterPage() {
         accessibilityPreferences: accessPrefs,
       });
       navigate('/');
-    } catch (err) {
+    } catch (err: any) {
       if (axios.isAxiosError(err)) {
         setError(err.response?.data?.error || 'Registration failed. Please try again.');
       } else {
-        setError('An unexpected error occurred. Please try again.');
+        setError(err?.message || 'An unexpected error occurred. Please try again.');
       }
     } finally {
       setIsLoading(false);
