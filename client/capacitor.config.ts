@@ -4,21 +4,16 @@ const config: CapacitorConfig = {
   appId: 'org.saksham.app',
   appName: 'SAKSHAM',
   webDir: 'dist',
-  bundledWebRuntime: false,
   server: {
     androidScheme: 'https',
     cleartext: true,
   },
   plugins: {
     SplashScreen: {
-      launchShowDuration: 2000,
+      launchShowDuration: 500,
       launchAutoHide: true,
       backgroundColor: '#020617',
-      androidSplashResourceName: 'splash',
-      androidScaleType: 'CENTER_CROP',
-      showSpinner: true,
-      androidSpinnerStyle: 'large',
-      spinnerColor: '#6366f1',
+      showSpinner: false,
     },
     StatusBar: {
       style: 'DARK',

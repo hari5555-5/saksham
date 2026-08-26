@@ -6,6 +6,7 @@ import {
   Loader2, AlertCircle, Mail, Linkedin, Info, HandMetal
 } from 'lucide-react';
 import AccessibilityToolbar from '../components/AccessibilityToolbar';
+import { FEATURED_PAPERS } from './ResearchPage';
 
 interface Paper {
   id: string;
@@ -62,12 +63,20 @@ export default function ResearchReaderPage() {
 
   useEffect(() => {
     const fetchPaper = async () => {
+      // Check local featured papers first
+      const local = FEATURED_PAPERS.find(p => p.id === id);
+      if (local) {
+        setPaper(local);
+        setIsLoading(false);
+        return;
+      }
+
       try {
         const res = await axios.get(`/api/research/${id}`);
         setPaper(res.data);
       } catch (err) {
-        if (axios.isAxiosError(err)) {
-          setError(err.response?.data?.error || 'Could not load this paper. Please try again.');
+        if (local) {
+          setPaper(local);
         } else {
           setError('Could not load this paper. Please try again.');
         }
