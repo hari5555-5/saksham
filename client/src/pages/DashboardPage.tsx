@@ -88,6 +88,17 @@ export default function DashboardPage() {
       <div className="page-container">
         {/* Hero Section */}
         <section className="pt-6 pb-12 text-center relative z-10" aria-labelledby="dashboard-heading">
+          <div className="flex justify-center mb-5">
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-500 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition duration-300" />
+              <img
+                src="./logo.png"
+                alt="SAKSHAM Logo"
+                className="relative w-28 h-28 object-contain rounded-2xl shadow-2xl bg-slate-900/90 p-1.5 border border-white/20"
+              />
+            </div>
+          </div>
+
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border border-indigo-500/30 backdrop-blur-xl mb-6 shadow-[0_0_20px_rgba(99,102,241,0.2)] animate-pulse-glow">
             <span className="w-2 h-2 rounded-full bg-indigo-400 animate-ping" />
             <span className="text-xs font-semibold tracking-wide uppercase text-indigo-300 flex items-center gap-1.5">

@@ -72,7 +72,14 @@ export default function RegisterPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link to="/login" className="inline-flex flex-col items-center gap-3">
-            <div className="w-14 h-14 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center text-white text-xl font-black shadow-2xl">S</div>
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition duration-300" />
+              <img
+                src="./logo.png"
+                alt="SAKSHAM Logo"
+                className="relative w-20 h-20 object-contain rounded-2xl shadow-2xl bg-slate-900/90 p-1 border border-white/20"
+              />
+            </div>
             <h1 className="text-2xl font-display font-black text-white">SAKSHAM</h1>
           </Link>
         </div>

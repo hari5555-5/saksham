@@ -58,12 +58,17 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex flex-col items-center gap-3" aria-label="SAKSHAM">
-            <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-accent-500 rounded-2xl flex items-center justify-center text-white text-2xl font-black shadow-2xl shadow-primary-500/30">
-              S
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition duration-300" />
+              <img
+                src="./logo.png"
+                alt="SAKSHAM Logo"
+                className="relative w-24 h-24 object-contain rounded-2xl shadow-2xl bg-slate-900/90 p-1 border border-white/20"
+              />
             </div>
             <div>
               <h1 className="text-3xl font-display font-black text-white tracking-tight">SAKSHAM</h1>
-              <p className="text-primary-300 text-sm font-medium mt-1">Making knowledge accessible to everyone</p>
+              <p className="text-indigo-300 text-sm font-medium mt-1">Making knowledge accessible to everyone</p>
             </div>
           </Link>
         </div>

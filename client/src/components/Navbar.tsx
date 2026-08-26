@@ -40,10 +40,12 @@ export default function Navbar() {
             aria-label="SAKSHAM Home"
           >
             <div className="relative">
-              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-pink-600 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300 group-hover:scale-110" />
-              <div className="relative w-9 h-9 bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 rounded-xl flex items-center justify-center text-white text-base font-black shadow-lg shadow-indigo-950/50">
-                S
-              </div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-cyan-500 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300 group-hover:scale-110" />
+              <img
+                src="./logo.png"
+                alt="SAKSHAM Logo"
+                className="relative w-10 h-10 object-contain rounded-xl shadow-lg bg-slate-900/90 p-0.5 border border-white/10"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-display font-black text-xl tracking-wider text-white flex items-center gap-1.5">
@@ -53,7 +55,7 @@ export default function Navbar() {
                 </span>
               </span>
               <span className="text-[10px] font-medium text-slate-400 tracking-wider uppercase -mt-0.5">
-                Accessible Learning
+                Making Knowledge Accessible
               </span>
             </div>
           </Link>
