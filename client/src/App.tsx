@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { AccessibilityProvider } from './context/AccessibilityContext';
 import Navbar from './components/Navbar';
@@ -17,10 +17,10 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, isLoading } = useAuth();
   if (isLoading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-950">
+      <div className="min-h-screen flex items-center justify-center bg-slate-950">
         <div className="text-center">
           <div className="w-16 h-16 spinner mx-auto mb-4" />
-          <p className="text-slate-600 dark:text-slate-400 font-medium">Loading SAKSHAM...</p>
+          <p className="text-slate-400 font-medium">Loading SAKSHAM...</p>
         </div>
       </div>
     );
@@ -31,7 +31,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 
 function AppLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100">
       <Navbar />
       <main className="flex-1" id="main-content" tabIndex={-1}>
         {children}
@@ -42,7 +42,7 @@ function AppLayout({ children }: { children: React.ReactNode }) {
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <AuthProvider>
         <AccessibilityProvider>
           <Routes>
@@ -106,8 +106,9 @@ function App() {
           </Routes>
         </AccessibilityProvider>
       </AuthProvider>
-    </BrowserRouter>
+    </Router>
   );
 }
 
 export default App;
+
