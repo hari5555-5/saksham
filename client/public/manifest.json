@@ -1,0 +1,19 @@
+{
+  "short_name": "SAKSHAM",
+  "name": "SAKSHAM — Making Knowledge Accessible",
+  "description": "Accessible research papers, competitive exam mock tests, and AI-powered learning mentor.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/"
+}
