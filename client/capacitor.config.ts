@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'org.saksham.app',
-  appName: 'SAKSHAM',
+  appId: 'org.apdequilearn.app',
+  appName: 'APD EQUILEARN',
   webDir: 'dist',
   server: {
     androidScheme: 'https',

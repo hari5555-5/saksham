@@ -10,7 +10,7 @@ const SALT_ROUNDS = 12;
 // POST /api/auth/register
 router.post('/register', async (req, res) => {
   try {
-    const { name, email, password, phone, accessibilityPreferences } = req.body;
+    const { name, email, password, phone, institution, educationLevel, interests, accessibilityPreferences } = req.body;
     if (!name || !email || !password) return res.status(400).json({ error: 'Name, email, and password are required.' });
     if (password.length < 8) return res.status(400).json({ error: 'Password must be at least 8 characters.' });
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Please enter a valid email address.' });
@@ -20,10 +20,10 @@ router.post('/register', async (req, res) => {
     if (existing) return res.status(409).json({ error: 'An account with this email already exists.' });
 
     const passwordHash = await bcrypt.hash(password, SALT_ROUNDS);
-    run(db, 'INSERT INTO users (name, email, password_hash, phone) VALUES (?, ?, ?, ?)',
-      [name.trim(), email.toLowerCase(), passwordHash, phone || null]);
+    run(db, 'INSERT INTO users (name, email, password_hash, phone, institution, education_level, interests) VALUES (?, ?, ?, ?, ?, ?, ?)',
+      [name.trim(), email.toLowerCase(), passwordHash, phone || null, institution || 'Biotechnology Institute', educationLevel || 'Undergraduate', interests || 'Genetics, Biosensors, AI']);
 
-    const user = get(db, 'SELECT id FROM users WHERE email = ?', [email.toLowerCase()]);
+    const user = get(db, 'SELECT id, name, email, institution, education_level, interests FROM users WHERE email = ?', [email.toLowerCase()]);
     const userId = user.id;
 
     const prefs = accessibilityPreferences || {};
@@ -33,7 +33,7 @@ router.post('/register', async (req, res) => {
        prefs.textToSpeech ? 1 : 0, prefs.screenReader ? 1 : 0, prefs.signLanguage ? 1 : 0, prefs.reducedMotion ? 1 : 0]);
 
     const token = jwt.sign({ userId, email: email.toLowerCase(), name: name.trim() }, JWT_SECRET, { expiresIn: '7d' });
-    res.status(201).json({ message: 'Account created successfully. Welcome to SAKSHAM!', token, user: { id: userId, name: name.trim(), email: email.toLowerCase() } });
+    res.status(201).json({ message: 'Account created successfully. Welcome to APD EQUILEARN!', token, user });
   } catch (err) {
     console.error('Register error:', err);
     res.status(500).json({ error: 'Could not create account. Please try again.' });
@@ -47,14 +47,25 @@ router.post('/login', async (req, res) => {
     if (!email || !password) return res.status(400).json({ error: 'Email and password are required.' });
 
     const db = await getDb();
-    const user = get(db, 'SELECT * FROM users WHERE email = ?', [email.toLowerCase()]);
+    const user = get(db, 'SELECT id, name, email, password_hash, institution, education_level, interests FROM users WHERE email = ?', [email.toLowerCase()]);
     if (!user) return res.status(401).json({ error: 'Invalid email or password.' });
 
     const isValid = await bcrypt.compare(password, user.password_hash);
     if (!isValid) return res.status(401).json({ error: 'Invalid email or password.' });
 
     const token = jwt.sign({ userId: user.id, email: user.email, name: user.name }, JWT_SECRET, { expiresIn: '7d' });
-    res.json({ message: 'Welcome back to SAKSHAM!', token, user: { id: user.id, name: user.name, email: user.email } });
+    res.json({
+      message: 'Welcome back to APD EQUILEARN!',
+      token,
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        institution: user.institution || 'Biotechnology Institute',
+        educationLevel: user.education_level || 'Undergraduate',
+        interests: user.interests || 'Genetics, Biosensors, AI'
+      }
+    });
   } catch (err) {
     console.error('Login error:', err);
     res.status(500).json({ error: 'Login failed. Please try again.' });

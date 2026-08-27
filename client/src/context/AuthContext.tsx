@@ -5,6 +5,9 @@ interface User {
   id: number;
   name: string;
   email: string;
+  institution?: string;
+  educationLevel?: string;
+  interests?: string;
 }
 
 interface StoredAccount {
@@ -12,6 +15,9 @@ interface StoredAccount {
   name: string;
   email: string;
   password: string;
+  institution?: string;
+  educationLevel?: string;
+  interests?: string;
   accessibilityPreferences?: Record<string, boolean | string>;
 }
 
@@ -29,6 +35,9 @@ interface RegisterData {
   email: string;
   password: string;
   phone?: string;
+  institution?: string;
+  educationLevel?: string;
+  interests?: string;
   accessibilityPreferences?: Record<string, boolean | string>;
 }
 

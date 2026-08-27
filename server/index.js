@@ -10,6 +10,7 @@ const researchRoutes = require('./routes/research');
 const papersRoutes = require('./routes/papers');
 const chatRoutes = require('./routes/chat');
 const profileRoutes = require('./routes/profile');
+const biobridgeRoutes = require('./routes/biobridge');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -38,6 +39,7 @@ app.use('/api/research', researchRoutes);
 app.use('/api/papers', papersRoutes);
 app.use('/api/chat', aiLimiter, chatRoutes);
 app.use('/api/profile', profileRoutes);
+app.use('/api/biobridge', biobridgeRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {

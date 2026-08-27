@@ -293,15 +293,172 @@ export const PAST_PAPERS_CATALOG: PastPaper[] = [
     durationMinutes: 120,
     totalQuestions: 100,
     totalMarks: 200,
+  },
+  // GATE Biotechnology Papers
+  {
+    id: 401,
+    exam: 'GATE Biotechnology',
+    year: 2024,
+    subject: 'Biotechnology',
+    paper_type: 'Official GATE Question Paper + Solution',
+    title: 'GATE 2024 Biotechnology (BT) Solved Question Paper with Answer Key',
+    url: 'https://gate2024.iisc.ac.in',
+    source: 'IISc Bangalore / GATE Organising Institute',
+    is_demo: 0,
+    durationMinutes: 180,
+    totalQuestions: 65,
+    totalMarks: 100,
+  },
+  {
+    id: 402,
+    exam: 'GATE Biotechnology',
+    year: 2023,
+    subject: 'Biotechnology',
+    paper_type: 'Subject Paper',
+    title: 'GATE 2023 Biotechnology (BT) Recombinant DNA & Process Engineering Paper',
+    url: 'https://gate.iitk.ac.in',
+    source: 'IIT Kanpur',
+    is_demo: 0,
+    durationMinutes: 180,
+    totalQuestions: 65,
+    totalMarks: 100,
+  },
+
+  // CSIR UGC NET Papers
+  {
+    id: 501,
+    exam: 'CSIR UGC NET',
+    year: 2024,
+    subject: 'Life Sciences',
+    paper_type: 'Full Length Paper',
+    title: 'CSIR UGC NET 2024 Life Sciences Official Question Paper (Part A, B & C)',
+    url: 'https://csirnet.nta.ac.in',
+    source: 'National Testing Agency (NTA)',
+    is_demo: 0,
+    durationMinutes: 180,
+    totalQuestions: 145,
+    totalMarks: 200,
+  },
+  {
+    id: 502,
+    exam: 'CSIR UGC NET',
+    year: 2023,
+    subject: 'Life Sciences',
+    paper_type: 'Subject Paper',
+    title: 'CSIR NET 2023 Molecular Biology, Cell Communication & Genetics Paper',
+    url: 'https://csirnet.nta.ac.in',
+    source: 'National Testing Agency (NTA)',
+    is_demo: 0,
+    durationMinutes: 180,
+    totalQuestions: 145,
+    totalMarks: 200,
+  },
+
+  // GAT-B Papers
+  {
+    id: 601,
+    exam: 'GAT-B',
+    year: 2024,
+    subject: 'Biotechnology',
+    paper_type: 'Postgraduate Entrance Paper',
+    title: 'GAT-B 2024 Graduate Aptitude Test Biotechnology Question Paper',
+    url: 'https://dbt.nta.ac.in',
+    source: 'NTA & Department of Biotechnology',
+    is_demo: 0,
+    durationMinutes: 180,
+    totalQuestions: 160,
+    totalMarks: 240,
+  },
+
+  // CUET UG Papers
+  {
+    id: 701,
+    exam: 'CUET UG',
+    year: 2024,
+    subject: 'Biology / Biotechnology',
+    paper_type: 'Undergraduate Entrance Paper',
+    title: 'CUET UG 2024 Biology & Biotechnology Solved Question Paper',
+    url: 'https://cuetug.nta.online',
+    source: 'National Testing Agency (NTA)',
+    is_demo: 0,
+    durationMinutes: 45,
+    totalQuestions: 50,
+    totalMarks: 200,
+  },
+
+  // IIT JAM Papers
+  {
+    id: 801,
+    exam: 'IIT JAM',
+    year: 2024,
+    subject: 'Biotechnology',
+    paper_type: 'M.Sc. Entrance Paper',
+    title: 'IIT JAM 2024 Biotechnology (BT) Solved Question Paper',
+    url: 'https://jam.iitm.ac.in',
+    source: 'IIT Madras / JAM Board',
+    is_demo: 0,
+    durationMinutes: 180,
+    totalQuestions: 60,
+    totalMarks: 100,
+  },
+
+  // DBT BET & JRF Papers
+  {
+    id: 901,
+    exam: 'DBT BET',
+    year: 2023,
+    subject: 'Biotechnology Eligibility Test',
+    paper_type: 'JRF Entrance Paper',
+    title: 'DBT BET 2023 Biotechnology Eligibility Test Solved Question Paper',
+    url: 'https://dbt.nta.ac.in',
+    source: 'Department of Biotechnology (DBT)',
+    is_demo: 0,
+    durationMinutes: 180,
+    totalQuestions: 200,
+    totalMarks: 300,
+  },
+  {
+    id: 950,
+    exam: 'CSIR/DBT JRF',
+    year: 2023,
+    subject: 'Junior Research Fellowship',
+    paper_type: 'JRF Solved Paper',
+    title: 'CSIR/DBT JRF 2023 Fellowship Solved Question Paper & Answer Key',
+    url: 'https://csirnet.nta.ac.in',
+    source: 'CSIR / NTA',
+    is_demo: 0,
+    durationMinutes: 180,
+    totalQuestions: 145,
+    totalMarks: 200,
   }
 ];
 
-const EXAMS = ['NEET', 'JEE', 'UPSC'];
+const EXAMS = [
+  'NEET',
+  'JEE',
+  'UPSC',
+  'GATE Biotechnology',
+  'CSIR UGC NET',
+  'GAT-B',
+  'CUET UG',
+  'IIT JAM',
+  'DBT BET',
+  'CSIR/DBT JRF'
+];
+
 const SUBJECTS: Record<string, string[]> = {
   NEET: ['All', 'All Subjects (Full Length)', 'Biology', 'Physics', 'Chemistry'],
   JEE: ['All', 'All Subjects (Full Length)', 'Mathematics', 'Physics', 'Chemistry'],
   UPSC: ['All', 'General Studies', 'CSAT'],
+  'GATE Biotechnology': ['All', 'Biotechnology'],
+  'CSIR UGC NET': ['All', 'Life Sciences'],
+  'GAT-B': ['All', 'Biotechnology'],
+  'CUET UG': ['All', 'Biology / Biotechnology'],
+  'IIT JAM': ['All', 'Biotechnology'],
+  'DBT BET': ['All', 'Biotechnology Eligibility Test'],
+  'CSIR/DBT JRF': ['All', 'Junior Research Fellowship']
 };
+
 const YEARS = ['All', '2024', '2023', '2022', '2021', '2020'];
 
 export default function PastPapersPage() {
@@ -401,6 +558,63 @@ export default function PastPapersPage() {
       desc: 'Premier civil services examination for India’s top administrative and public leadership roles.',
       icon: '🏛️',
     },
+    'GATE Biotechnology': {
+      label: 'GATE Biotechnology (BT)',
+      tag: 'Postgraduate & M.Tech Entrance',
+      gradient: 'from-purple-500 to-indigo-600',
+      desc: 'Graduate Aptitude Test in Engineering for admissions to M.Tech and Ph.D. programs in premier institutes.',
+      icon: '🧬',
+    },
+    'CSIR UGC NET': {
+      label: 'CSIR UGC NET Life Sciences',
+      tag: 'JRF & Assistant Professorship',
+      gradient: 'from-cyan-500 to-blue-600',
+      desc: 'National Eligibility Test for Junior Research Fellowship and Lectureship in Indian Universities.',
+      icon: '🔬',
+    },
+    'GAT-B': {
+      label: 'GAT-B Postgraduate Biotech',
+      tag: 'DBT M.Sc. Biotechnology Entrance',
+      gradient: 'from-pink-500 to-purple-600',
+      desc: 'Graduate Aptitude Test - Biotechnology for Department of Biotechnology sponsored postgraduate programs.',
+      icon: '🧫',
+    },
+    'CUET UG': {
+      label: 'CUET UG Biological Sciences',
+      tag: 'Undergraduate University Entrance',
+      gradient: 'from-teal-500 to-cyan-600',
+      desc: 'Common University Entrance Test for admission to Central Universities across India.',
+      icon: '🎓',
+    },
+    'IIT JAM': {
+      label: 'IIT JAM Biotechnology',
+      tag: 'M.Sc. Admission at IITs & IISc',
+      gradient: 'from-indigo-500 to-purple-600',
+      desc: 'Joint Admission Test for M.Sc. in Biotechnology at Indian Institutes of Technology.',
+      icon: '🧪',
+    },
+    'DBT BET': {
+      label: 'DBT BET Biotechnology',
+      tag: 'DBT-JRF Fellowship Examination',
+      gradient: 'from-rose-500 to-pink-600',
+      desc: 'Biotechnology Eligibility Test conducted for award of DBT Junior Research Fellowships.',
+      icon: '⚡',
+    },
+    'CSIR/DBT JRF': {
+      label: 'CSIR/DBT Junior Research Fellowship',
+      tag: 'Ph.D. & JRF Research Award',
+      gradient: 'from-emerald-500 to-cyan-600',
+      desc: 'National fellowship examination for doctoral research scholars in Indian research institutes.',
+      icon: '🏆',
+    }
+  };
+
+  const currentMeta = examMeta[activeExam] || {
+    label: activeExam,
+    tag: 'Competitive Exam',
+    gradient: 'from-cyan-500 to-blue-600',
+    desc: `Previous year question papers and practice tests for ${activeExam}.`,
+    icon: '📝'
   };
 
   return (
@@ -414,7 +628,7 @@ export default function PastPapersPage() {
             </div>
             <div>
               <h1 id="papers-heading" className="text-3xl font-black font-display text-white tracking-tight">
-                SAKSHAM Past Examination Papers
+                APD EQUILEARN Past Examination Papers
               </h1>
               <p className="text-slate-400 text-sm">
                 Official previous year question papers with step-by-step solutions and interactive practice mode
@@ -428,21 +642,21 @@ export default function PastPapersPage() {
         </div>
 
         {/* Exam Navigation Tabs */}
-        <div className="grid grid-cols-3 gap-3 p-1.5 bg-slate-900/90 backdrop-blur-xl border border-slate-800 rounded-2xl max-w-xl">
+        <div className="flex items-center gap-2 overflow-x-auto p-2 bg-slate-900/90 backdrop-blur-xl border border-slate-800 rounded-2xl scrollbar-none">
           {EXAMS.map(exam => {
-            const meta = examMeta[exam];
+            const meta = examMeta[exam] || { icon: '📝' };
             const isActive = activeExam === exam;
             return (
               <button
                 key={exam}
                 onClick={() => setActiveExam(exam)}
-                className={`py-3 px-4 rounded-xl text-center font-bold text-sm transition-all duration-300 flex flex-col items-center gap-1 ${
+                className={`py-2.5 px-4 rounded-xl text-center font-bold text-xs transition-all duration-300 flex items-center gap-2 shrink-0 ${
                   isActive
-                    ? `bg-gradient-to-r ${meta.gradient} text-white shadow-xl shadow-indigo-600/20`
+                    ? `bg-gradient-to-r ${meta.gradient || 'from-cyan-500 to-blue-600'} text-white shadow-xl`
                     : 'text-slate-400 hover:text-white hover:bg-slate-800/60'
                 }`}
               >
-                <span className="text-lg">{meta.icon}</span>
+                <span>{meta.icon}</span>
                 <span>{exam}</span>
               </button>
             );
@@ -454,12 +668,12 @@ export default function PastPapersPage() {
       <div className="glass-card p-5 mb-8 border-slate-800 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <h2 className="text-base font-bold text-white">{examMeta[activeExam].label}</h2>
+            <h2 className="text-base font-bold text-white">{currentMeta.label}</h2>
             <span className="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-slate-800 text-slate-300 border border-slate-700">
-              {examMeta[activeExam].tag}
+              {currentMeta.tag}
             </span>
           </div>
-          <p className="text-xs text-slate-400">{examMeta[activeExam].desc}</p>
+          <p className="text-xs text-slate-400">{currentMeta.desc}</p>
         </div>
         <div className="flex items-center gap-4 text-xs text-slate-300 shrink-0">
           <div className="flex items-center gap-1">

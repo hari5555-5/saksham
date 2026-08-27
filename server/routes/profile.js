@@ -7,10 +7,20 @@ const router = express.Router();
 // GET /api/profile
 router.get('/', authenticateToken, async (req, res) => {
   const db = await getDb();
-  const user = get(db, 'SELECT id, name, email, phone, created_at FROM users WHERE id = ?', [req.user.userId]);
+  const user = get(db, 'SELECT id, name, email, phone, institution, education_level as educationLevel, interests, created_at FROM users WHERE id = ?', [req.user.userId]);
   if (!user) return res.status(404).json({ error: 'User not found.' });
   const prefs = get(db, 'SELECT * FROM accessibility_preferences WHERE user_id = ?', [req.user.userId]);
   res.json({ user, preferences: prefs || {} });
+});
+
+// PUT /api/profile
+router.put('/', authenticateToken, async (req, res) => {
+  const db = await getDb();
+  const { name, phone, institution, educationLevel, interests } = req.body;
+  run(db, `UPDATE users SET name=?, phone=?, institution=?, education_level=?, interests=?, updated_at=datetime('now') WHERE id=?`,
+    [name, phone, institution || 'Biotechnology Institute', educationLevel || 'Undergraduate', interests || 'Genetics, Biosensors, AI', req.user.userId]);
+  const user = get(db, 'SELECT id, name, email, phone, institution, education_level as educationLevel, interests, created_at FROM users WHERE id = ?', [req.user.userId]);
+  res.json({ message: 'Profile updated successfully', user });
 });
 
 // PUT /api/profile/preferences

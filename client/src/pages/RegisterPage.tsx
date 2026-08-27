@@ -16,7 +16,16 @@ const ACCESS_OPTIONS = [
 export default function RegisterPage() {
   const { register } = useAuth();
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: '', email: '', password: '', confirmPassword: '', phone: '' });
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    phone: '',
+    institution: 'Biotechnology Institute',
+    educationLevel: 'Undergraduate',
+    interests: 'Genetics, Biosensors, AI'
+  });
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [accessPrefs, setAccessPrefs] = useState<Record<string, boolean>>({});
@@ -47,9 +56,12 @@ export default function RegisterPage() {
         email: form.email.trim(),
         password: form.password,
         phone: form.phone || undefined,
+        institution: form.institution,
+        educationLevel: form.educationLevel,
+        interests: form.interests,
         accessibilityPreferences: accessPrefs,
       });
-      navigate('/');
+      navigate('/biobridge/home');
     } catch (err: any) {
       if (axios.isAxiosError(err)) {
         setError(err.response?.data?.error || 'Registration failed. Please try again.');
@@ -76,17 +88,17 @@ export default function RegisterPage() {
               <div className="absolute -inset-2 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition duration-300" />
               <img
                 src="./logo.png"
-                alt="SAKSHAM Logo"
+                alt="APD EQUILEARN Logo"
                 className="relative w-20 h-20 object-contain rounded-2xl shadow-2xl bg-slate-900/90 p-1 border border-white/20"
               />
             </div>
-            <h1 className="text-2xl font-display font-black text-white">SAKSHAM</h1>
+            <h1 className="text-2xl font-display font-black text-white">APD EQUILEARN</h1>
           </Link>
         </div>
 
         <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
           <h2 className="text-2xl font-bold text-white mb-2">Create your account</h2>
-          <p className="text-slate-300 text-sm mb-6">Join SAKSHAM and make learning accessible</p>
+          <p className="text-cyan-300 text-xs sm:text-sm mb-6">Join APD EQUILEARN: Empowering Diverse Learners Through Accessible Biotechnology Education and Innovation</p>
 
           {error && (
             <div role="alert" aria-live="polite" className="flex items-start gap-3 p-4 bg-error-500/20 border border-error-500/30 rounded-xl mb-6 text-error-200">

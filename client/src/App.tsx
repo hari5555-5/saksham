@@ -5,6 +5,9 @@ import { StatusBar, Style } from '@capacitor/status-bar';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { AccessibilityProvider } from './context/AccessibilityContext';
 import Navbar from './components/Navbar';
+import AccessibilityToolbar from './components/AccessibilityToolbar';
+
+// Saksham Pages
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import DashboardPage from './pages/DashboardPage';
@@ -15,6 +18,18 @@ import PracticeModePage from './pages/PracticeModePage';
 import InnovatePage from './pages/InnovatePage';
 import ProfilePage from './pages/ProfilePage';
 
+// BioBridge AI Portal Components & Pages
+import { BioBridgeNavbar } from './components/biobridge/BioBridgeNavbar';
+import { BioBridgeAIAssistant } from './components/biobridge/BioBridgeAIAssistant';
+import { BioBridgeLandingPage } from './pages/biobridge/BioBridgeLandingPage';
+import { BioBridgeDashboardPage } from './pages/biobridge/BioBridgeDashboardPage';
+import { BioBridgeResearchPage } from './pages/biobridge/BioBridgeResearchPage';
+import { BioBridgeBiomarkersPage } from './pages/biobridge/BioBridgeBiomarkersPage';
+import { BioBridgeCompetitivePage } from './pages/biobridge/BioBridgeCompetitivePage';
+import { BioBridgeInnovatePage } from './pages/biobridge/BioBridgeInnovatePage';
+import { BioBridgeBiosensorsPage } from './pages/biobridge/BioBridgeBiosensorsPage';
+import { BioBridgeExperimentsPage } from './pages/biobridge/BioBridgeExperimentsPage';
+
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, isLoading } = useAuth();
   if (isLoading) {
@@ -22,7 +37,7 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
       <div className="min-h-screen flex items-center justify-center bg-slate-950">
         <div className="text-center">
           <div className="w-16 h-16 spinner mx-auto mb-4" />
-          <p className="text-slate-400 font-medium">Loading SAKSHAM...</p>
+          <p className="text-slate-400 font-medium">Loading SAKSHAM & BioBridge AI...</p>
         </div>
       </div>
     );
@@ -35,9 +50,23 @@ function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100">
       <Navbar />
+      <AccessibilityToolbar />
       <main className="flex-1" id="main-content" tabIndex={-1}>
         {children}
       </main>
+    </div>
+  );
+}
+
+function BioBridgeLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 selection:bg-cyan-500 selection:text-slate-950">
+      <BioBridgeNavbar />
+      <AccessibilityToolbar />
+      <main className="flex-1" id="main-content" tabIndex={-1}>
+        {children}
+      </main>
+      <BioBridgeAIAssistant />
     </div>
   );
 }
@@ -59,7 +88,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
 
-            {/* Protected routes */}
+            {/* Standard Saksham Protected routes */}
             <Route path="/" element={
               <ProtectedRoute>
                 <AppLayout>
@@ -110,8 +139,73 @@ function App() {
               </ProtectedRoute>
             } />
 
+            {/* BioBridge AI Ecosystem Protected Routes */}
+            <Route path="/biobridge" element={
+              <ProtectedRoute>
+                <BioBridgeLayout>
+                  <BioBridgeLandingPage />
+                </BioBridgeLayout>
+              </ProtectedRoute>
+            } />
+            <Route path="/biobridge/home" element={
+              <ProtectedRoute>
+                <BioBridgeLayout>
+                  <BioBridgeLandingPage />
+                </BioBridgeLayout>
+              </ProtectedRoute>
+            } />
+            <Route path="/biobridge/dashboard" element={
+              <ProtectedRoute>
+                <BioBridgeLayout>
+                  <BioBridgeDashboardPage />
+                </BioBridgeLayout>
+              </ProtectedRoute>
+            } />
+            <Route path="/biobridge/research" element={
+              <ProtectedRoute>
+                <BioBridgeLayout>
+                  <BioBridgeResearchPage />
+                </BioBridgeLayout>
+              </ProtectedRoute>
+            } />
+            <Route path="/biobridge/biomarkers" element={
+              <ProtectedRoute>
+                <BioBridgeLayout>
+                  <BioBridgeBiomarkersPage />
+                </BioBridgeLayout>
+              </ProtectedRoute>
+            } />
+            <Route path="/biobridge/competitive" element={
+              <ProtectedRoute>
+                <BioBridgeLayout>
+                  <BioBridgeCompetitivePage />
+                </BioBridgeLayout>
+              </ProtectedRoute>
+            } />
+            <Route path="/biobridge/innovate" element={
+              <ProtectedRoute>
+                <BioBridgeLayout>
+                  <BioBridgeInnovatePage />
+                </BioBridgeLayout>
+              </ProtectedRoute>
+            } />
+            <Route path="/biobridge/biosensors" element={
+              <ProtectedRoute>
+                <BioBridgeLayout>
+                  <BioBridgeBiosensorsPage />
+                </BioBridgeLayout>
+              </ProtectedRoute>
+            } />
+            <Route path="/biobridge/experiments" element={
+              <ProtectedRoute>
+                <BioBridgeLayout>
+                  <BioBridgeExperimentsPage />
+                </BioBridgeLayout>
+              </ProtectedRoute>
+            } />
+
             {/* Catch all */}
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<Navigate to="/biobridge/home" replace />} />
           </Routes>
         </AccessibilityProvider>
       </AuthProvider>
@@ -120,4 +214,3 @@ function App() {
 }
 
 export default App;
-

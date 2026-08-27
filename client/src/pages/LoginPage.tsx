@@ -20,7 +20,7 @@ export default function LoginPage() {
     setIsLoading(true);
     try {
       await login(email, password);
-      navigate('/');
+      navigate('/biobridge/dashboard');
     } catch (err: any) {
       if (axios.isAxiosError(err)) {
         setError(err.response?.data?.error || 'Login failed. Please try again.');
@@ -57,18 +57,18 @@ export default function LoginPage() {
       <div className="relative w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex flex-col items-center gap-3" aria-label="SAKSHAM">
+          <Link to="/" className="inline-flex flex-col items-center gap-3" aria-label="APD EQUILEARN">
             <div className="relative group">
               <div className="absolute -inset-2 bg-gradient-to-r from-indigo-500 to-cyan-500 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition duration-300" />
               <img
                 src="./logo.png"
-                alt="SAKSHAM Logo"
+                alt="APD EQUILEARN Logo"
                 className="relative w-24 h-24 object-contain rounded-2xl shadow-2xl bg-slate-900/90 p-1 border border-white/20"
               />
             </div>
-            <div>
-              <h1 className="text-3xl font-display font-black text-white tracking-tight">SAKSHAM</h1>
-              <p className="text-indigo-300 text-sm font-medium mt-1">Making knowledge accessible to everyone</p>
+            <div className="text-center px-4">
+              <h1 className="text-2xl sm:text-3xl font-display font-black text-white tracking-tight">APD EQUILEARN</h1>
+              <p className="text-cyan-300 text-xs sm:text-sm font-medium mt-1 leading-snug">Empowering Diverse Learners Through Accessible Biotechnology Education and Innovation</p>
             </div>
           </Link>
         </div>

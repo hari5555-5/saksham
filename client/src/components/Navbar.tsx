@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import {
   BookOpen, FileText, Zap, User, LogOut, Menu, X,
-  Home, Settings, ChevronDown, Sparkles
+  Home, Settings, ChevronDown, Sparkles, Dna
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 const navLinks = [
   { to: '/', label: 'Home', icon: Home },
+  { to: '/biobridge/home', label: 'BioBridge AI', icon: Dna, isBioBridge: true },
   { to: '/research', label: 'Research Papers', icon: BookOpen },
   { to: '/past-papers', label: 'Past Papers', icon: FileText },
   { to: '/innovate', label: 'innoVate AI', icon: Zap },
@@ -37,25 +38,25 @@ export default function Navbar() {
           <Link
             to="/"
             className="flex items-center gap-3 group focus-visible:ring-2 focus-visible:ring-indigo-400 rounded-xl p-1"
-            aria-label="SAKSHAM Home"
+            aria-label="APD EQUILEARN Home"
           >
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-cyan-500 rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-300 group-hover:scale-110" />
               <img
                 src="./logo.png"
-                alt="SAKSHAM Logo"
+                alt="APD EQUILEARN Logo"
                 className="relative w-10 h-10 object-contain rounded-xl shadow-lg bg-slate-900/90 p-0.5 border border-white/10"
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-display font-black text-xl tracking-wider text-white flex items-center gap-1.5">
-                SAKSHAM
-                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+              <span className="font-display font-black text-lg sm:text-xl tracking-wider text-white flex items-center gap-1.5">
+                APD EQUILEARN
+                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
                   <Sparkles size={10} className="mr-0.5" /> PRO
                 </span>
               </span>
-              <span className="text-[10px] font-medium text-slate-400 tracking-wider uppercase -mt-0.5">
-                Making Knowledge Accessible
+              <span className="text-[9px] sm:text-[10px] font-medium text-cyan-300/90 tracking-wide -mt-0.5 max-w-[280px] sm:max-w-none truncate">
+                Empowering Diverse Learners Through Accessible Biotechnology Education and Innovation
               </span>
             </div>
           </Link>
