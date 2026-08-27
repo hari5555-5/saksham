@@ -61,7 +61,7 @@ export default function RegisterPage() {
         interests: form.interests,
         accessibilityPreferences: accessPrefs,
       });
-      navigate('/biobridge/home');
+      navigate('/');
     } catch (err: any) {
       if (axios.isAxiosError(err)) {
         setError(err.response?.data?.error || 'Registration failed. Please try again.');

@@ -1,7 +1,7 @@
 {
-  "name": "saksham",
+  "name": "apd-equilearn",
   "version": "1.0.0",
-  "description": "SAKSHAM — Making knowledge accessible to everyone",
+  "description": "APD EQUILEARN — Empowering Diverse Learners Through Accessible Biotechnology Education and Innovation",
   "scripts": {
     "install:all": "npm install --prefix server && npm install --prefix client",
     "dev": "npm run dev --prefix client",

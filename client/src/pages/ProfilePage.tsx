@@ -54,7 +54,7 @@ export default function ProfilePage() {
       {/* Header */}
       <section aria-labelledby="profile-heading" className="mb-8">
         <h1 id="profile-heading" className="section-title mb-1">Profile & Settings</h1>
-        <p className="text-slate-500 dark:text-slate-400">Customize your SAKSHAM experience</p>
+        <p className="text-slate-500 dark:text-slate-400">Customize your APD EQUILEARN experience</p>
       </section>
 
       {/* User info */}

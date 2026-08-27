@@ -20,7 +20,7 @@ export default function LoginPage() {
     setIsLoading(true);
     try {
       await login(email, password);
-      navigate('/biobridge/dashboard');
+      navigate('/');
     } catch (err: any) {
       if (axios.isAxiosError(err)) {
         setError(err.response?.data?.error || 'Login failed. Please try again.');
@@ -173,7 +173,7 @@ export default function LoginPage() {
 
           {/* Register link */}
           <p className="mt-6 text-center text-slate-300 text-sm">
-            New to SAKSHAM?{' '}
+            New to APD EQUILEARN?{' '}
             <Link to="/register" className="text-primary-300 hover:text-primary-200 font-semibold transition-colors">
               Create account
             </Link>
